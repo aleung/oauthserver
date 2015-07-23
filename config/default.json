@@ -1,0 +1,8 @@
+{
+  "Server" : {
+    "Port" : 3000,
+    "Session" : {
+      "Secret" : "d38id73aqesp24vb7"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "oauthserver",
+  "version": "1.0.0",
+  "description": "OAuth Server for test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "oauth2orize": "^1.0.1"
+  }
+}

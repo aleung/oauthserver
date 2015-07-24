@@ -1,42 +1,25 @@
-var express = require('express')
-var session = require('express-session')
-var cookieParser = require('cookie-parser')
-var config = require('config')
-
-  , passport = require('passport')
-  , site = require('./site')
-  , oauth2 = require('./oauth2')
-  , user = require('./user')
-  , client = require('./client')
-  , util = require('util')
+var express = require('express');
+var session = require('express-session');
+var config = require('config');
+var passport = require('passport');
+var site = require('./site');
+var oauth2 = require('./oauth2');
   
   
-// Express configuration
-  
-var app = express.createServer();
+var app = express();
 app.set('view engine', 'ejs');
-app.use(cookieParser());
 
-var sessionSecret = config.get('Server.Session.Secret');
-app.use(session({sessionSecret}));
+app.use(session({
+  secret : config.get('Server.Session.Secret'),
+  resave : false,
+  saveUninitialized : false
+}));
 
-/*
-app.use(function(req, res, next) {
-  console.log('-- session --');
-  console.dir(req.session);
-  //console.log(util.inspect(req.session, true, 3));
-  console.log('-------------');
-  next()
-});
-*/
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(app.router);
-app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 // Passport configuration
-require('./auth');
-
+//require('./auth');
 
 app.get('/', site.index);
 app.get('/login', site.loginForm);
@@ -44,11 +27,9 @@ app.post('/login', site.login);
 app.get('/logout', site.logout);
 app.get('/account', site.account);
 
-app.get('/dialog/authorize', oauth2.authorization);
-app.post('/dialog/authorize/decision', oauth2.decision);
-app.post('/oauth/token', oauth2.token);
+//app.get('/dialog/authorize', oauth2.authorization);
+//app.post('/dialog/authorize/decision', oauth2.decision);
 
-app.get('/api/userinfo', user.info);
-app.get('/api/clientinfo', client.info);
+app.post('/oauth/token', oauth2.token);
 
 app.listen(config.get('Server.Port'));

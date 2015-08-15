@@ -1,0 +1,6 @@
+{
+  "ext": "js es json ejs",
+  "execMap": {
+    "es": "babel-node"
+  }
+}

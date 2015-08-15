@@ -1,4 +1,9 @@
-<form action="/login" method="post">
+<% layout('portal/layout') -%>
+<% if (failed) { %>
+<p><font color="red"><%= failed %></font></p>
+<% } %>
+
+<form action="/portal/login" method="post">
 	<div>
 	<label>Username:</label>
 	<input type="text" name="username"/><br/>

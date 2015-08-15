@@ -1,8 +1,41 @@
 {
-  "Server" : {
-    "Port" : 3000,
-    "Session" : {
-      "Secret" : "d38id73aqesp24vb7"
+  "Server": {
+    "Port": 3000,
+    "Session": {
+      "Secret": "d38id73aqesp24vb7"
     }
-  }
+  },
+  "DemoApp": {
+    "Secret": "dk38xk3f"
+  },
+  "ResourceServer": {
+    "Secret": "mlwucu49xk2"
+  },
+  "Users": [
+    {
+      "id": "1",
+      "username": "bob",
+      "password": "secret",
+      "name": "Bob Smith"
+    },
+    {
+      "id": "2",
+      "username": "joe",
+      "password": "password",
+      "name": "Joe Davis"
+    }],
+  "Clients": [
+    {
+      "id": "resource",
+      "secret": "mlwucu49xk2",
+      "name": "Resource Server",
+      "role": "resource"
+    },
+    {
+      "id": "demoapp",
+      "secret": "dk38xk3f",
+      "name": "Demo App",
+      "role": "client"
+    }
+  ]
 }

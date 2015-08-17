@@ -30,9 +30,10 @@ app.use(flash());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressWinston.logger({
   transports: [
-    new winston.transports.Console({
-      json: true,
-      colorize: true
+    new winston.transports.File({
+      filename: 'access.log',
+      maxsize: 5242880,
+      tailable: true,
     })
   ]
 }));

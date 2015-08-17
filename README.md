@@ -43,6 +43,13 @@ $ cd oauthserver
 $ npm start
 ```
 
+Can also start the server with [nodemon](http://nodemon.io/) if it's installed:
+
+```
+$ cd oauthserver
+$ nodemon index.es
+```
+
 # Functions and Interfaces
 
 This node.js module is for test purpose only. It includes an OAuth 2.0 Server with crude and simple user portal, a demo app which acts as OAuth client and a demo resource server which provides a do-nothing API.

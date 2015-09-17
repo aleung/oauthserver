@@ -13,7 +13,7 @@
   2.7.4
   ```
 
-- Setup proxy if it's required to access internet. Following <http://jjasonclark.com/how-to-setup-node-behind-web-proxy/>.
+- Setup proxy if internet is not directly accessable. Following <http://jjasonclark.com/how-to-setup-node-behind-web-proxy/>.
 
 - Install `babel` module globally
 
@@ -22,6 +22,10 @@
   ```
   
 - Extract the tarball
+
+  ```
+  $ mkdir oautherserver && tar zxf oauthserver-1.0.0.tgz -C oautherserver --strip-components 1
+  ```
 
 - Install dependency modules
 
